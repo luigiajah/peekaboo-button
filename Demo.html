@@ -1,0 +1,65 @@
+
+<style>
+    /* Styling for the body element, centers content on the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4; /* Light grey background color */
+    }
+
+    /* Styling for the overall button container */
+    .animated-button {
+      position: relative; /* Relative positioning for absolute positioning of children */
+      padding: 20px; /* Padding around the button */
+      background: transparent; /* No background color */
+      border: none; /* No border */
+      cursor: pointer; /* Cursor becomes a hand when hovering over the button */
+      outline: none; /* No outline */
+      width: 200px; /* Width of the button */
+      height: 50px; /* Height of the button */
+    }
+
+    /* Styling for the actual button element */
+    .animated-button button {
+      position: relative; /* Relative positioning for child elements */
+      width: 100%; /* Full width of the container */
+      height: 100%; /* Full height of the container */
+      background: #F70858; /* Pink background color */
+      color: #fff; /* White text color */
+      border: none; /* No border */
+      border-radius: 36px; /* Rounded corners */
+      z-index: 2; /* Higher stack order */
+      overflow: hidden; /* Anything outside the boundaries of the button is hidden */
+    }
+
+    /* Styling for the gif */
+    .button-gif {
+      position: absolute; /* Absolute positioning based on the relative parent */
+      top: 0; /* Start from the top of the parent */
+      left: 50%; /* Center horizontally in the parent */
+      width: 60px; /* Width of the gif */
+      height: 60px; /* Height of the gif */
+      z-index: 1; /* Lower stack order */
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animation transition properties */
+      opacity: 0; /* Initially hidden */
+      object-fit: cover; /* Keep the gif's aspect ratio */
+      transform: translateX(-50%); /* Center the gif horizontally */
+    }
+
+    /* Styling for the gif when hovering over the button */
+    .animated-button:hover .button-gif {
+      transform: translateX(-50%) translateY(-25px); /* Move up and maintain horizontal center */
+      opacity: 1; /* Fully visible */
+    }
+</style>
+
+<div class="animated-button">
+    <!-- Animated GIF behind the button -->
+    <img src="peek.gif" class="button-gif" alt="animated button image">
+
+    <!-- Actual button element -->
+    <button>Delete Account</button>
+</div>
